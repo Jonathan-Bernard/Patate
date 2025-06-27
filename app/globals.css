@@ -4,13 +4,6 @@
   --accent: #8b6a3e;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1a1209;
-    --foreground: #f3e4d6;
-    --accent: #d6b88e;
-  }
-}
 
 html,
 body {

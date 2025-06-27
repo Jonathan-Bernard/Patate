@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        <meta name="color-scheme" content="light dark" />
+        <meta name="color-scheme" content="light" />
       </head>
       <body className={fredoka.variable}>
         {children}
