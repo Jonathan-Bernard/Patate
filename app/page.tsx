@@ -84,7 +84,7 @@ export default function Home() {
       <section id="accueil" ref={accueilRef} className={`reveal reveal-fade ${styles.section}`}>
         <div className={styles.card}>
           <h1>🐾 Patate !</h1>
-          <p>Si tu es ici, c&apos;est que tu gardes Patate, le plus grand des chasseurs 🐱🨴 !</p>
+<p>Si tu es ici, c&apos;est que tu gardes Patate, le plus grand des chasseurs 🐱🦴 !</p>
           <p>📋 Voici toutes les infos pour t&apos;aider à prendre soin de lui pendant notre absence.</p>
         </div>
       </section>
