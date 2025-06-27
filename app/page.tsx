@@ -18,12 +18,12 @@ export default function Home() {
   const photosRef = useScrollReveal()
   const coursesRef = useScrollReveal()
 
-useEffect(() => {
-  const interval = setInterval(() => {
-    setCurrent((prev) => (prev + 1) % images.length)
-  }, 5000)
-  return () => clearInterval(interval)
-}, [images.length]) // 👈 ici
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [images.length])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -48,7 +48,6 @@ useEffect(() => {
 
   return (
     <main className={styles.page}>
-      {/* 🔰 Logo */}
       <header className={styles.logoHeader}>
         <a href="#accueil">
           <Image
@@ -61,40 +60,35 @@ useEffect(() => {
         </a>
       </header>
 
-      {/* 🧭 Navigation */}
-<nav className={styles.nav} ref={navRef}>
-  <div className={styles.navWrapper}>
-    <div className={styles.navLeft}>
-      {/* Vide ou futur logo si souhaité */}
-    </div>
+      <nav className={styles.nav} ref={navRef}>
+        <div className={styles.navWrapper}>
+          <div className={styles.navLeft}></div>
 
-    <div className={`${styles.navLinks} ${isMenuOpen ? styles.open : ''}`}>
-      <a href="#nourriture" onClick={() => setIsMenuOpen(false)}>Nourriture</a>
-      <a href="#infos" onClick={() => setIsMenuOpen(false)}>Infos pratiques</a>
-      <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
-      <a href="#photos" onClick={() => setIsMenuOpen(false)}>Photos</a>
-    </div>
+          <div className={`${styles.navLinks} ${isMenuOpen ? styles.open : ''}`}>
+            <a href="#nourriture" onClick={() => setIsMenuOpen(false)}>Nourriture</a>
+            <a href="#infos" onClick={() => setIsMenuOpen(false)}>Infos pratiques</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+            <a href="#photos" onClick={() => setIsMenuOpen(false)}>Photos</a>
+          </div>
 
-    <button
-      className={styles.burger}
-      onClick={() => setIsMenuOpen((prev) => !prev)}
-      aria-label="Toggle menu"
-    >
-      ☰
-    </button>
-  </div>
-</nav>
+          <button
+            className={styles.burger}
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+          >
+            ☰
+          </button>
+        </div>
+      </nav>
 
-      {/* 🏠 Accueil */}
       <section id="accueil" ref={accueilRef} className={`reveal reveal-fade ${styles.section}`}>
         <div className={styles.card}>
           <h1>🐾 Patate !</h1>
-          <p>Si tu es ici, c'est que tu gardes Patate, le plus grand des chasseurs 🐱🦴 !</p>
-          <p>📋 Voici toutes les infos pour t'aider à prendre soin de lui pendant notre absence.</p>
+          <p>Si tu es ici, c&apos;est que tu gardes Patate, le plus grand des chasseurs 🐱🨴 !</p>
+          <p>📋 Voici toutes les infos pour t&apos;aider à prendre soin de lui pendant notre absence.</p>
         </div>
       </section>
 
-      {/* 🍽️ Nourriture */}
       <section id="nourriture" ref={nourritureRef} className={`reveal reveal-left ${styles.section}`}>
         <div className={styles.card}>
           <h2>Nourriture</h2>
@@ -102,47 +96,45 @@ useEffect(() => {
           <ul className={styles.textWithImages}>
             <li>
               🥫 Un sachet de Sheba avec un demi médicament écrasé dedans. Le tout dans la gamelle en fer.
-              <Image src="/nourriture.png" alt="Nourriture de Patate" />
+              <Image src="/nourriture.png" alt="Nourriture de Patate" width={300} height={200} />
             </li>
             <li>
               🍗 Croquettes : remplir à moitié le pipolino. Les croquettes sont en dessous des plaques de cuisson.
-              <Image src="/croquette.png" alt="Croquettes" />
-              <Image src="/pipolino.png" alt="Pipolino" />
+              <Image src="/croquette.png" alt="Croquettes" width={300} height={200} />
+              <Image src="/pipolino.png" alt="Pipolino" width={300} height={200} />
             </li>
             <li>
               💧 Eau fraîche à volonté.
-              <Image src="/eau.png" alt="Bol d'eau fraîche" />
+              <Image src="/eau.png" alt="Bol d&apos;eau fraîche" width={300} height={200} />
             </li>
             <li>
               🍬 Et une poignée de Catisfactions pour son plus grand plaisir 😻.
-              <Image src="/catisfaction2.png" alt="Catisfactions" />
+              <Image src="/catisfaction2.png" alt="Catisfactions" width={300} height={200} />
             </li>
           </ul>
         </div>
       </section>
 
-      {/* 📋 Infos pratiques */}
       <section id="infos" ref={infosRef} className={`reveal reveal-right ${styles.section}`}>
         <div className={styles.card}>
           <h2>Infos pratiques</h2>
           <ul className={styles.textWithImages}>
             <li>
               🚽 Litière : à nettoyer tous les jours (pelle et petite poubelle à côté)
-              <Image src="/litiere2.png" alt="Litière" />
+              <Image src="/litiere2.png" alt="Litière" width={300} height={200} />
             </li>
             <li>
               🎾 Les jouets sont dans la chambre !
-              <Image src="/jouets.png" alt="jouets" />
+              <Image src="/jouets.png" alt="Jouets" width={300} height={200} />
             </li>
             <li>
               😺 Câlins fortement recommandés — c&apos;est un expert en ronrons
-              <Image src="/patate5.png" alt="Ronrons de Patate" />
+              <Image src="/patate5.png" alt="Ronrons de Patate" width={300} height={200} />
             </li>
           </ul>
         </div>
       </section>
 
-      {/* 🛍️ Courses */}
       <section id="courses" ref={coursesRef} className={`reveal reveal-left ${styles.section}`}>
         <div className={styles.card}>
           <h2>Courses pour Patate</h2>
@@ -152,23 +144,23 @@ useEffect(() => {
             <h3>🛍️ Intermarché – 75-77 Rue Léon Gambetta</h3>
             <div className={styles.productGrid}>
               <div className={styles.productCard}>
-                <Image src="/sheba.png" alt="Sheba" />
+                <Image src="/sheba.png" alt="Sheba" width={300} height={200} />
                 <p>Pâtée Sheba</p>
               </div>
               <div className={styles.productCard}>
-                <Image src="/catisfaction.png" alt="Catisfactions" />
+                <Image src="/catisfaction.png" alt="Catisfactions" width={300} height={200} />
                 <p>Catisfactions</p>
               </div>
               <div className={styles.productCard}>
-                <Image src="/litiere.png" alt="Litière" />
+                <Image src="/litiere.png" alt="Litière" width={300} height={200} />
                 <p>Litière agglomérante</p>
               </div>
             </div>
 
             <h3>🌿 LaFleur – 174 Rue Léon Gambetta</h3>
             <div className={`${styles.productGrid} ${styles.singleCentered}`}>
-              <div className={`${styles.productCard}`}>
-                <Image src="/herbeachat.png" alt="Herbe à chat" />
+              <div className={styles.productCard}>
+                <Image src="/herbeachat.png" alt="Herbe à chat" width={300} height={200} />
                 <p>Herbe à chat</p>
               </div>
             </div>
@@ -176,7 +168,6 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* 📞 Contact */}
       <section id="contact" ref={contactRef} className={`reveal reveal-zoom ${styles.section}`}>
         <div className={styles.card}>
           <div className={styles.cardContentLeft}>
@@ -194,7 +185,6 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* 📸 Galerie */}
       <section id="photos" ref={photosRef} className={`reveal reveal-fade ${styles.section}`}>
         <div className={styles.card}>
           <h2>Galerie</h2>
@@ -206,6 +196,8 @@ useEffect(() => {
                 alt={`Patate ${index + 1}`}
                 className={`${styles.slide} ${index === current ? styles.active : ''}`}
                 aria-hidden={index !== current}
+                fill
+                style={{ objectFit: 'cover', borderRadius: '1rem' }}
               />
             ))}
           </div>
