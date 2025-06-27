@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import styles from './page.module.css'
 import { useScrollReveal } from './hooks/useScrollReveal'
+import Image from 'next/image'
 
 export default function Home() {
   const images = ['/patate1.png', '/patate2.png', '/patate3.png' , '/patate4.png', '/patate5.png' , '/patate6.png', '/patate7.png']
@@ -17,12 +18,12 @@ export default function Home() {
   const photosRef = useScrollReveal()
   const coursesRef = useScrollReveal()
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [])
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrent((prev) => (prev + 1) % images.length)
+  }, 5000)
+  return () => clearInterval(interval)
+}, [images.length]) // 👈 ici
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -50,7 +51,7 @@ export default function Home() {
       {/* 🔰 Logo */}
       <header className={styles.logoHeader}>
         <a href="#accueil">
-          <img
+          <Image
             src="/logo-patate.png"
             alt="Logo Patate le Chat"
             className={styles.logo}
@@ -101,20 +102,20 @@ export default function Home() {
           <ul className={styles.textWithImages}>
             <li>
               🥫 Un sachet de Sheba avec un demi médicament écrasé dedans. Le tout dans la gamelle en fer.
-              <img src="/nourriture.png" alt="Nourriture de Patate" />
+              <Image src="/nourriture.png" alt="Nourriture de Patate" />
             </li>
             <li>
               🍗 Croquettes : remplir à moitié le pipolino. Les croquettes sont en dessous des plaques de cuisson.
-              <img src="/croquette.png" alt="Croquettes" />
-              <img src="/pipolino.png" alt="Pipolino" />
+              <Image src="/croquette.png" alt="Croquettes" />
+              <Image src="/pipolino.png" alt="Pipolino" />
             </li>
             <li>
               💧 Eau fraîche à volonté.
-              <img src="/eau.png" alt="Bol d'eau fraîche" />
+              <Image src="/eau.png" alt="Bol d'eau fraîche" />
             </li>
             <li>
               🍬 Et une poignée de Catisfactions pour son plus grand plaisir 😻.
-              <img src="/catisfaction2.png" alt="Catisfactions" />
+              <Image src="/catisfaction2.png" alt="Catisfactions" />
             </li>
           </ul>
         </div>
@@ -127,15 +128,15 @@ export default function Home() {
           <ul className={styles.textWithImages}>
             <li>
               🚽 Litière : à nettoyer tous les jours (pelle et petite poubelle à côté)
-              <img src="/litiere2.png" alt="Litière" />
+              <Image src="/litiere2.png" alt="Litière" />
             </li>
             <li>
               🎾 Les jouets sont dans la chambre !
-              <img src="/jouets.png" alt="jouets" />
+              <Image src="/jouets.png" alt="jouets" />
             </li>
             <li>
-              😺 Câlins fortement recommandés — c’est un expert en ronrons
-              <img src="/patate5.png" alt="Ronrons de Patate" />
+              😺 Câlins fortement recommandés — c&apos;est un expert en ronrons
+              <Image src="/patate5.png" alt="Ronrons de Patate" />
             </li>
           </ul>
         </div>
@@ -151,15 +152,15 @@ export default function Home() {
             <h3>🛍️ Intermarché – 75-77 Rue Léon Gambetta</h3>
             <div className={styles.productGrid}>
               <div className={styles.productCard}>
-                <img src="/sheba.png" alt="Sheba" />
+                <Image src="/sheba.png" alt="Sheba" />
                 <p>Pâtée Sheba</p>
               </div>
               <div className={styles.productCard}>
-                <img src="/catisfaction.png" alt="Catisfactions" />
+                <Image src="/catisfaction.png" alt="Catisfactions" />
                 <p>Catisfactions</p>
               </div>
               <div className={styles.productCard}>
-                <img src="/litiere.png" alt="Litière" />
+                <Image src="/litiere.png" alt="Litière" />
                 <p>Litière agglomérante</p>
               </div>
             </div>
@@ -167,7 +168,7 @@ export default function Home() {
             <h3>🌿 LaFleur – 174 Rue Léon Gambetta</h3>
             <div className={`${styles.productGrid} ${styles.singleCentered}`}>
               <div className={`${styles.productCard}`}>
-                <img src="/herbeachat.png" alt="Herbe à chat" />
+                <Image src="/herbeachat.png" alt="Herbe à chat" />
                 <p>Herbe à chat</p>
               </div>
             </div>
@@ -199,7 +200,7 @@ export default function Home() {
           <h2>Galerie</h2>
           <div className={styles.carousel}>
             {images.map((src, index) => (
-              <img
+              <Image
                 key={index}
                 src={src}
                 alt={`Patate ${index + 1}`}
