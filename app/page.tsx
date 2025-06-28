@@ -135,38 +135,57 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="courses" ref={coursesRef} className={`reveal reveal-left ${styles.section}`}>
-        <div className={styles.card}>
-          <h2>Courses pour Patate</h2>
-          <p>🛒 Tu trouveras les produits pour Patate dans ces magasins proches :</p>
+<section id="courses" ref={coursesRef} className={`reveal reveal-left ${styles.section}`}>
+  <div className={styles.card}>
+    <h2>Courses pour Patate</h2>
+    <p>🛒 Tu trouveras les produits pour Patate dans ces magasins proches :</p>
 
-          <div className={styles.storeBlock}>
-            <h3>🛍️ Intermarché – 75-77 Rue Léon Gambetta</h3>
-            <div className={styles.productGrid}>
-              <div className={styles.productCard}>
-                <Image src="/sheba.png" alt="Sheba" width={300} height={200} />
-                <p>Pâtée Sheba</p>
-              </div>
-              <div className={styles.productCard}>
-                <Image src="/catisfaction.png" alt="Catisfactions" width={300} height={200} />
-                <p>Catisfactions</p>
-              </div>
-              <div className={styles.productCard}>
-                <Image src="/litiere.png" alt="Litière" width={300} height={200} />
-                <p>Litière agglomérante</p>
-              </div>
-            </div>
-
-            <h3>🌿 LaFleur – 174 Rue Léon Gambetta</h3>
-            <div className={`${styles.productGrid} ${styles.singleCentered}`}>
-              <div className={styles.productCard}>
-                <Image src="/herbeachat.png" alt="Herbe à chat" width={300} height={200} />
-                <p>Herbe à chat</p>
-              </div>
-            </div>
-          </div>
+    <div className={styles.storeBlock}>
+      <h3>
+        🛍️ Intermarché –{" "}
+        <a
+          href="https://maps.google.com/?q=75-77+Rue+Léon+Gambetta,+Lille"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          75-77 Rue Léon Gambetta
+        </a>
+      </h3>
+      <div className={styles.productGrid}>
+        <div className={styles.productCard}>
+          <Image src="/sheba.png" alt="Sheba" width={300} height={200} />
+          <p>Pâtée Sheba</p>
         </div>
-      </section>
+        <div className={styles.productCard}>
+          <Image src="/catisfaction.png" alt="Catisfactions" width={300} height={200} />
+          <p>Catisfactions</p>
+        </div>
+        <div className={styles.productCard}>
+          <Image src="/litiere.png" alt="Litière" width={300} height={200} />
+          <p>Litière agglomérante</p>
+        </div>
+      </div>
+
+      <h3>
+        🌿 LaFleur –{" "}
+        <a
+          href="https://maps.google.com/?q=174+Rue+Léon+Gambetta,+Lille"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          174 Rue Léon Gambetta
+        </a>
+      </h3>
+      <div className={`${styles.productGrid} ${styles.singleCentered}`}>
+        <div className={styles.productCard}>
+          <Image src="/herbeachat.png" alt="Herbe à chat" width={300} height={200} />
+          <p>Herbe à chat</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       <section id="contact" ref={contactRef} className={`reveal reveal-zoom ${styles.section}`}>
         <div className={styles.card}>
